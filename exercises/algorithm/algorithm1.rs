@@ -69,6 +69,7 @@ impl<T> LinkedList<T> {
 impl<T: std::cmp::PartialOrd> LinkedList<T> {
     pub fn merge(mut list_a: LinkedList<T>, mut list_b: LinkedList<T>) -> Self {
         let mut merged_list = LinkedList::new();
+        merged_list.length = list_a.length + list_b.length;
         merged_list.start = Self::merge_nodes(list_a.start.take(), list_b.start.take());
         merged_list
     }
